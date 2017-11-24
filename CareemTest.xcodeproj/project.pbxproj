@@ -7,13 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E348209B1FC8A731000134C3 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E348209A1FC8A731000134C3 /* NetworkManager.m */; };
+		E34820A41FC8A8B3000134C3 /* MovieModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E34820A31FC8A8B3000134C3 /* MovieModel.m */; };
+		E34820AB1FC8AF8A000134C3 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = E34820AA1FC8AF8A000134C3 /* SearchResult.m */; };
+		E34820AE1FC8B4D1000134C3 /* MovieSearchResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E34820AD1FC8B4D1000134C3 /* MovieSearchResultVC.m */; };
 		E354D6011FC8133700EFB8CB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E354D6001FC8133700EFB8CB /* AppDelegate.m */; };
-		E354D6041FC8133700EFB8CB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E354D6031FC8133700EFB8CB /* ViewController.m */; };
+		E354D6041FC8133700EFB8CB /* MovieSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E354D6031FC8133700EFB8CB /* MovieSearchVC.m */; };
 		E354D6071FC8133700EFB8CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E354D6051FC8133700EFB8CB /* Main.storyboard */; };
 		E354D6091FC8133700EFB8CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E354D6081FC8133700EFB8CB /* Assets.xcassets */; };
 		E354D60C1FC8133700EFB8CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E354D60A1FC8133700EFB8CB /* LaunchScreen.storyboard */; };
 		E354D60F1FC8133700EFB8CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E354D60E1FC8133700EFB8CB /* main.m */; };
 		E354D6191FC8133700EFB8CB /* CareemTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E354D6181FC8133700EFB8CB /* CareemTestTests.m */; };
+		E3D728061FC8C2DD00893C01 /* MovieSearchResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3D728051FC8C2DD00893C01 /* MovieSearchResultTableViewCell.m */; };
+		E3D729521FC8CC4400893C01 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3D7294B1FC8CC3400893C01 /* SDWebImage.framework */; };
+		E3D729531FC8CC4400893C01 /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E3D7294B1FC8CC3400893C01 /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,14 +31,87 @@
 			remoteGlobalIDString = E354D5FB1FC8133700EFB8CB;
 			remoteInfo = CareemTest;
 		};
+		E3D729461FC8CC3400893C01 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E3D7293D1FC8CC3400893C01 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 53761325155AD0D5005750A4;
+			remoteInfo = "SDWebImage iOS static";
+		};
+		E3D729481FC8CC3400893C01 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E3D7293D1FC8CC3400893C01 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4314D1991D0E0E3B004B36C9;
+			remoteInfo = "SDWebImage watchOS static";
+		};
+		E3D7294A1FC8CC3400893C01 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E3D7293D1FC8CC3400893C01 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4A2CADFF1AB4BB5300B6BC39;
+			remoteInfo = "SDWebImage iOS";
+		};
+		E3D7294C1FC8CC3400893C01 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E3D7293D1FC8CC3400893C01 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 00733A4C1BC487C000A5A117;
+			remoteInfo = "SDWebImage tvOS";
+		};
+		E3D7294E1FC8CC3400893C01 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E3D7293D1FC8CC3400893C01 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 431BB7031D06D2C1006A3455;
+			remoteInfo = "SDWebImage watchOS";
+		};
+		E3D729501FC8CC3400893C01 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E3D7293D1FC8CC3400893C01 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4397D2F21D0DDD8C00BB2784;
+			remoteInfo = "SDWebImage OSX";
+		};
+		E3D729591FC8CDE300893C01 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E3D7293D1FC8CC3400893C01 /* SDWebImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A2CADFE1AB4BB5300B6BC39;
+			remoteInfo = "SDWebImage iOS";
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E3D729561FC8CC4400893C01 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E3D729531FC8CC4400893C01 /* SDWebImage.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		E34820991FC8A731000134C3 /* NetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		E348209A1FC8A731000134C3 /* NetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		E34820A21FC8A8B3000134C3 /* MovieModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieModel.h; sourceTree = "<group>"; };
+		E34820A31FC8A8B3000134C3 /* MovieModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieModel.m; sourceTree = "<group>"; };
+		E34820A61FC8A964000134C3 /* Configure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Configure.h; sourceTree = "<group>"; };
+		E34820A81FC8AB4B000134C3 /* CareemTest_Prefix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CareemTest_Prefix.h; sourceTree = "<group>"; };
+		E34820A91FC8AF8A000134C3 /* SearchResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
+		E34820AA1FC8AF8A000134C3 /* SearchResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchResult.m; sourceTree = "<group>"; };
+		E34820AC1FC8B4D1000134C3 /* MovieSearchResultVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieSearchResultVC.h; sourceTree = "<group>"; };
+		E34820AD1FC8B4D1000134C3 /* MovieSearchResultVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieSearchResultVC.m; sourceTree = "<group>"; };
 		E354D5FC1FC8133700EFB8CB /* CareemTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CareemTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E354D5FF1FC8133700EFB8CB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E354D6001FC8133700EFB8CB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E354D6021FC8133700EFB8CB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E354D6031FC8133700EFB8CB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E354D6021FC8133700EFB8CB /* MovieSearchVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieSearchVC.h; sourceTree = "<group>"; };
+		E354D6031FC8133700EFB8CB /* MovieSearchVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieSearchVC.m; sourceTree = "<group>"; };
 		E354D6061FC8133700EFB8CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E354D6081FC8133700EFB8CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E354D60B1FC8133700EFB8CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -40,6 +120,9 @@
 		E354D6141FC8133700EFB8CB /* CareemTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CareemTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E354D6181FC8133700EFB8CB /* CareemTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CareemTestTests.m; sourceTree = "<group>"; };
 		E354D61A1FC8133700EFB8CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3D728041FC8C2DD00893C01 /* MovieSearchResultTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieSearchResultTableViewCell.h; sourceTree = "<group>"; };
+		E3D728051FC8C2DD00893C01 /* MovieSearchResultTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieSearchResultTableViewCell.m; sourceTree = "<group>"; };
+		E3D7293D1FC8CC3400893C01 /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = Lib/SDWebImage/SDWebImage.xcodeproj; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3D729521FC8CC4400893C01 /* SDWebImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +144,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E34820981FC8A71B000134C3 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				E34820991FC8A731000134C3 /* NetworkManager.h */,
+				E348209A1FC8A731000134C3 /* NetworkManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		E34820A11FC8A8A8000134C3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E34820A21FC8A8B3000134C3 /* MovieModel.h */,
+				E34820A31FC8A8B3000134C3 /* MovieModel.m */,
+				E34820A91FC8AF8A000134C3 /* SearchResult.h */,
+				E34820AA1FC8AF8A000134C3 /* SearchResult.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E34820AF1FC8B4D5000134C3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E354D6021FC8133700EFB8CB /* MovieSearchVC.h */,
+				E354D6031FC8133700EFB8CB /* MovieSearchVC.m */,
+				E34820AC1FC8B4D1000134C3 /* MovieSearchResultVC.h */,
+				E34820AD1FC8B4D1000134C3 /* MovieSearchResultVC.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		E354D5F31FC8133700EFB8CB = {
 			isa = PBXGroup;
 			children = (
@@ -81,15 +196,20 @@
 		E354D5FE1FC8133700EFB8CB /* CareemTest */ = {
 			isa = PBXGroup;
 			children = (
+				E34820A61FC8A964000134C3 /* Configure.h */,
+				E34820A11FC8A8A8000134C3 /* Model */,
+				E34820981FC8A71B000134C3 /* Manager */,
+				E34820AF1FC8B4D5000134C3 /* ViewController */,
+				E3D728031FC8C2C100893C01 /* View */,
+				E3D7293C1FC8CC2E00893C01 /* Library */,
 				E354D5FF1FC8133700EFB8CB /* AppDelegate.h */,
 				E354D6001FC8133700EFB8CB /* AppDelegate.m */,
-				E354D6021FC8133700EFB8CB /* ViewController.h */,
-				E354D6031FC8133700EFB8CB /* ViewController.m */,
 				E354D6051FC8133700EFB8CB /* Main.storyboard */,
 				E354D6081FC8133700EFB8CB /* Assets.xcassets */,
 				E354D60A1FC8133700EFB8CB /* LaunchScreen.storyboard */,
 				E354D60D1FC8133700EFB8CB /* Info.plist */,
 				E354D60E1FC8133700EFB8CB /* main.m */,
+				E34820A81FC8AB4B000134C3 /* CareemTest_Prefix.h */,
 			);
 			path = CareemTest;
 			sourceTree = "<group>";
@@ -103,6 +223,36 @@
 			path = CareemTestTests;
 			sourceTree = "<group>";
 		};
+		E3D728031FC8C2C100893C01 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E3D728041FC8C2DD00893C01 /* MovieSearchResultTableViewCell.h */,
+				E3D728051FC8C2DD00893C01 /* MovieSearchResultTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E3D7293C1FC8CC2E00893C01 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				E3D7293D1FC8CC3400893C01 /* SDWebImage.xcodeproj */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		E3D7293E1FC8CC3400893C01 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E3D729471FC8CC3400893C01 /* libSDWebImage iOS static.a */,
+				E3D729491FC8CC3400893C01 /* libSDWebImage watchOS static.a */,
+				E3D7294B1FC8CC3400893C01 /* SDWebImage.framework */,
+				E3D7294D1FC8CC3400893C01 /* SDWebImage.framework */,
+				E3D7294F1FC8CC3400893C01 /* SDWebImage.framework */,
+				E3D729511FC8CC3400893C01 /* SDWebImage.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -110,13 +260,16 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E354D61D1FC8133700EFB8CB /* Build configuration list for PBXNativeTarget "CareemTest" */;
 			buildPhases = (
+				E3D729571FC8CD3A00893C01 /* Clone Submodules */,
 				E354D5F81FC8133700EFB8CB /* Sources */,
 				E354D5F91FC8133700EFB8CB /* Frameworks */,
 				E354D5FA1FC8133700EFB8CB /* Resources */,
+				E3D729561FC8CC4400893C01 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E3D7295A1FC8CDE300893C01 /* PBXTargetDependency */,
 			);
 			name = CareemTest;
 			productName = CareemTest;
@@ -171,6 +324,12 @@
 			mainGroup = E354D5F31FC8133700EFB8CB;
 			productRefGroup = E354D5FD1FC8133700EFB8CB /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E3D7293E1FC8CC3400893C01 /* Products */;
+					ProjectRef = E3D7293D1FC8CC3400893C01 /* SDWebImage.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				E354D5FB1FC8133700EFB8CB /* CareemTest */,
@@ -178,6 +337,51 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E3D729471FC8CC3400893C01 /* libSDWebImage iOS static.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libSDWebImage iOS static.a";
+			remoteRef = E3D729461FC8CC3400893C01 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E3D729491FC8CC3400893C01 /* libSDWebImage watchOS static.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libSDWebImage watchOS static.a";
+			remoteRef = E3D729481FC8CC3400893C01 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E3D7294B1FC8CC3400893C01 /* SDWebImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SDWebImage.framework;
+			remoteRef = E3D7294A1FC8CC3400893C01 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E3D7294D1FC8CC3400893C01 /* SDWebImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SDWebImage.framework;
+			remoteRef = E3D7294C1FC8CC3400893C01 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E3D7294F1FC8CC3400893C01 /* SDWebImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SDWebImage.framework;
+			remoteRef = E3D7294E1FC8CC3400893C01 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E3D729511FC8CC3400893C01 /* SDWebImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SDWebImage.framework;
+			remoteRef = E3D729501FC8CC3400893C01 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E354D5FA1FC8133700EFB8CB /* Resources */ = {
@@ -199,13 +403,35 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E3D729571FC8CD3A00893C01 /* Clone Submodules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Clone Submodules";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}\"\n\ncd \"$APP_PATH/Lib/SDWebImage/\"\ngit submodule update --init --recursive\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E354D5F81FC8133700EFB8CB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E354D6041FC8133700EFB8CB /* ViewController.m in Sources */,
+				E34820AB1FC8AF8A000134C3 /* SearchResult.m in Sources */,
+				E34820AE1FC8B4D1000134C3 /* MovieSearchResultVC.m in Sources */,
+				E348209B1FC8A731000134C3 /* NetworkManager.m in Sources */,
+				E354D6041FC8133700EFB8CB /* MovieSearchVC.m in Sources */,
 				E354D60F1FC8133700EFB8CB /* main.m in Sources */,
+				E34820A41FC8A8B3000134C3 /* MovieModel.m in Sources */,
+				E3D728061FC8C2DD00893C01 /* MovieSearchResultTableViewCell.m in Sources */,
 				E354D6011FC8133700EFB8CB /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,6 +451,11 @@
 			isa = PBXTargetDependency;
 			target = E354D5FB1FC8133700EFB8CB /* CareemTest */;
 			targetProxy = E354D6151FC8133700EFB8CB /* PBXContainerItemProxy */;
+		};
+		E3D7295A1FC8CDE300893C01 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SDWebImage iOS";
+			targetProxy = E3D729591FC8CDE300893C01 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -357,6 +588,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PREFIX_HEADER = CareemTest/CareemTest_Prefix.h;
 				INFOPLIST_FILE = CareemTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Careem.CareemTest;
@@ -370,6 +602,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_PREFIX_HEADER = CareemTest/CareemTest_Prefix.h;
 				INFOPLIST_FILE = CareemTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Careem.CareemTest;

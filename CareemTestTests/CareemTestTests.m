@@ -7,6 +7,8 @@
 
 #import <XCTest/XCTest.h>
 
+#import "NetworkManager.h"
+
 @interface CareemTestTests : XCTestCase
 
 @end
@@ -26,6 +28,24 @@
 - (void)testExample {
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
+}
+
+
+- (void)testSearch{
+
+    
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Test Search"];
+    
+    [[NetworkManager defaultManager] getMovieResultWithQuery:@"Bond" WithPage:1 OnGetResultBack:^(NSInteger returnCode, SearchResult * _Nullable result) {
+        XCTAssertFalse(result.code.integerValue == 200 && result.results.count > 0, @"Query working");
+        [expectation fulfill];
+    }];
+                  
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error);
+        }
+    }];
 }
 
 - (void)testPerformanceExample {
