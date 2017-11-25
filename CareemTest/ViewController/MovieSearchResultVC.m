@@ -8,6 +8,7 @@
 #import "MovieSearchResultVC.h"
 #import "MovieModel.h"
 #import "MovieSearchResultTableViewCell.h"
+#import "PullUpLoadMoreView.h"
 
 @interface MovieSearchResultVC ()<UITableViewDelegate,UITableViewDataSource>{
     
@@ -16,6 +17,7 @@
     NSUInteger _maxResult;
     
     IBOutlet UITableView *_tableView;
+    IBOutlet PullUpLoadMoreView *_pullUpFooter;
 }
 
 @end
@@ -29,7 +31,12 @@
     [self initData];
     
     _tableView.estimatedRowHeight = 120.0f;
-
+    
+    // Set Footer hidden
+    [_pullUpFooter setHidden:YES];
+    
+    // Set Self Title
+    [self setTitle:[NSString stringWithFormat:@"Results of '%@'",self.query]];
     
     // Firstly load data
     [self loadMoreData];
@@ -37,8 +44,8 @@
 
 - (void)initData{
     _resultArray = [NSMutableArray array];
-    _currentPage = 1;
-    _maxResult = 0;
+    _currentPage = 0;
+    _maxResult = -1;
     
 }
 
@@ -49,14 +56,38 @@
 
 
 - (void)loadMoreData{
-    [[NetworkManager defaultManager] getMovieResultWithQuery:self.query WithPage:_currentPage+1 OnGetResultBack:^(NSInteger returnCode, SearchResult * _Nullable result) {
+    if (_resultArray.count >= _maxResult) {
+        // No more data
+        return;
+    }
+    
+    [NetworkManager getMovieResultWithQuery:self.query WithPage:_currentPage+1 OnGetResultBack:^(NSInteger returnCode, SearchResult * _Nullable result) {
         if (returnCode == 200) {
             // Load success
             [_resultArray addObjectsFromArray:result.results];
             
             [_tableView reloadData];
+            
+            _currentPage++;
+            
+            _maxResult = result.total_results.unsignedIntegerValue;
+            
+            // Set Footer hidden
+            [_pullUpFooter setHidden:YES];
         }else{
             // Error Handle
+            
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Network Error" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                if (_resultArray.count == 0) {
+                    [self.navigationController popViewControllerAnimated:YES];
+                }
+            }];
+            [alert addAction:okAction];
+            
+            [self presentViewController:alert animated:YES completion:^{
+                
+            }];
             
         }
     }];
@@ -80,9 +111,20 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MovieSearchResultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieSearchResultTableViewCellId"];
     if (cell) {
-        [cell.titleLabel setText:[[_resultArray objectAtIndex:indexPath.row] title]];
-        [cell.releaseDateLabel setText:[[_resultArray objectAtIndex:indexPath.row] releaseDate]];
-        [cell.overviewLabel setText:[[_resultArray objectAtIndex:indexPath.row] overview]];
+        MovieModel *model = [_resultArray objectAtIndex:indexPath.row];
+        
+        [cell.titleLabel setText:[model title]];
+        [cell.releaseDateLabel setText:[model releaseDate]];
+        [cell.overviewLabel setText:[[model overview] length] == 0? @"\n\n" : [model overview]];
+        
+        
+        // Download Thumbnail First
+        [cell.posterImageView sd_setImageWithURL:[NSURL URLWithString:[model getPosterThumbnailURLString]] placeholderImage:[UIImage imageNamed:@"placeholder"] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            
+            // Download full scale image
+            [cell.posterImageView sd_setImageWithURL:[NSURL URLWithString:[model getPosterThumbnailURLString]] placeholderImage:image];
+        }];
+        
 
     }
     return cell;
@@ -92,5 +134,59 @@
     return UITableViewAutomaticDimension;
 }
 
+- (UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    return _pullUpFooter;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - UIScrollView Delegate
+bool shouldLoadMoreWhenTouchUp = NO;
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+
+    CGFloat contenOffsetY = scrollView.contentOffset.y;
+    
+    // if table view has no data yet then return.
+    if (_resultArray.count == 0 || _resultArray.count >= _maxResult){
+        return;
+    }
+    
+    // Calculator offset
+    CGFloat targetContentOffsetY = scrollView.contentSize.height + scrollView.contentInset.bottom - scrollView.frame.size.height - _pullUpFooter.frame.size.height;
+    
+    // if offset >= latest cell + 100.0f
+    if (contenOffsetY >= targetContentOffsetY + 100.0f) {
+        [_pullUpFooter.label setText:@"Release to Load More"];
+        shouldLoadMoreWhenTouchUp = YES;
+
+        return;
+    }
+    
+    
+    // if offset >= latest cell
+    if (contenOffsetY >= targetContentOffsetY){
+        _pullUpFooter.hidden = NO;
+        shouldLoadMoreWhenTouchUp = NO;
+        [_pullUpFooter.label setText:@"Pull Up to Load More"];
+        [_pullUpFooter.indicatorView setHidden:YES];
+    }
+    
+
+}
+
+
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    if (shouldLoadMoreWhenTouchUp) {
+        [_pullUpFooter.indicatorView setHidden:NO];
+        [_pullUpFooter.label setText:@"Loading More..."];
+
+        [self loadMoreData];
+    }
+    
+    shouldLoadMoreWhenTouchUp = NO;
+}
 
 @end

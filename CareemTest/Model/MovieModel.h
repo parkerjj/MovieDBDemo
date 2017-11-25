@@ -26,4 +26,20 @@
 
 - (instancetype)initWithDictionary:(NSDictionary*)otherDictionary;
 
+
+/**
+ Get Poster Thumbnail URL
+ 
+ @return URL String
+ */
+- (NSString*)getPosterThumbnailURLString;
+
+
+/**
+ Get Poster URL
+ 
+ @return URL String
+ */
+- (NSString*)getPosterURLString;
+
 @end

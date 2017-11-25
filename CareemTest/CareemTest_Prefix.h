@@ -18,3 +18,9 @@
 
 #import "Configure.h"
 #import "NetworkManager.h"
+#import "HistoryManager.h"
+
+
+// ===== Library =====
+#import <SDWebImage/UIImageView+WebCache.h>
+

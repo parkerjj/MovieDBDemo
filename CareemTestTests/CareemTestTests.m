@@ -8,6 +8,8 @@
 #import <XCTest/XCTest.h>
 
 #import "NetworkManager.h"
+#import "SearchResult.h"
+
 
 @interface CareemTestTests : XCTestCase
 
@@ -32,12 +34,10 @@
 
 
 - (void)testSearch{
-
-    
     XCTestExpectation *expectation = [self expectationWithDescription:@"Test Search"];
     
-    [[NetworkManager defaultManager] getMovieResultWithQuery:@"Bond" WithPage:1 OnGetResultBack:^(NSInteger returnCode, SearchResult * _Nullable result) {
-        XCTAssertFalse(result.code.integerValue == 200 && result.results.count > 0, @"Query working");
+    [NetworkManager getMovieResultWithQuery:@"Bond" WithPage:1 OnGetResultBack:^(NSInteger returnCode, SearchResult * _Nullable result) {
+        XCTAssert(result.code.integerValue == 200 && result.results.count > 0, @"Query working");
         [expectation fulfill];
     }];
                   
@@ -46,6 +46,16 @@
             NSLog(@"Error: %@", error);
         }
     }];
+}
+
+- (void)testJSON{
+    NSString *vaildStr = @"{\"page\":1,\"total_results\":98,\"total_pages\":5,\"results\":[{\"vote_count\":2284,\"id\":268,\"video\":false,\"vote_average\":7,\"title\":\"Batman\",\"popularity\":15.726497,\"poster_path\":\"/kBf3g9crrADGMc2AMAMlLBgSm2h.jpg\",\"original_language\":\"en\",\"original_title\":\"Batman\",\"genre_ids\":[14,28],\"backdrop_path\":\"/2blmxp2pr4BhwQr74AdCfwgfMOb.jpg\",\"adult\":false,\"overview\":\"The Dark Knight of Gotham City begins his war on crime with his first major enemy being the clownishly homicidal Joker, who has seized control of Gotham's underworld.\",\"release_date\":\"1989-06-23\"}]}";
+    NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:[vaildStr dataUsingEncoding:NSUTF8StringEncoding]
+                                                            options:NSJSONReadingMutableContainers
+                                                              error:nil];
+    
+    SearchResult *result = [[SearchResult alloc] initWithDictionary:jsonDic];
+    XCTAssertNotNil(result);
 }
 
 - (void)testPerformanceExample {

@@ -31,7 +31,7 @@ static NetworkManager *_manager = nil;
 }
 
 
-- (NSURLSessionTask * _Nullable)getMovieResultWithQuery:(NSString * _Nonnull)query WithPage:(NSInteger)page OnGetResultBack:(void (^_Nonnull)(NSInteger returnCode, SearchResult* _Nullable result))resultBackResult {
++ (NSURLSessionTask * _Nullable)getMovieResultWithQuery:(NSString * _Nonnull)query WithPage:(NSInteger)page OnGetResultBack:(void (^_Nonnull)(NSInteger returnCode, SearchResult* _Nullable result))resultBackResult {
 
     if (query == nil || query.length == 0) {
         return nil;
@@ -41,7 +41,7 @@ static NetworkManager *_manager = nil;
     // Send Network Request
     // =============================================================
     // Create Request URL
-    NSString *requestURL = [NSString stringWithFormat:kNetworkManagerMovieSearchURL,query,page];
+    NSString *requestURL = [[NSString stringWithFormat:kNetworkManagerMovieSearchURL,query,page] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     NSURL *url = [NSURL URLWithString:requestURL];
     NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:url
                                                                    cachePolicy:NSURLRequestUseProtocolCachePolicy

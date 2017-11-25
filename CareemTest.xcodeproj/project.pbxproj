@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E343ACAF1FC8DCFC00FC0E9A /* PullUpLoadMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = E343ACAE1FC8DCFC00FC0E9A /* PullUpLoadMoreView.m */; };
+		E343ACB71FC8E39F00FC0E9A /* HistoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E343ACB61FC8E39F00FC0E9A /* HistoryManager.m */; };
 		E348209B1FC8A731000134C3 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E348209A1FC8A731000134C3 /* NetworkManager.m */; };
 		E34820A41FC8A8B3000134C3 /* MovieModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E34820A31FC8A8B3000134C3 /* MovieModel.m */; };
 		E34820AB1FC8AF8A000134C3 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = E34820AA1FC8AF8A000134C3 /* SearchResult.m */; };
@@ -97,6 +99,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E343ACAD1FC8DCFC00FC0E9A /* PullUpLoadMoreView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PullUpLoadMoreView.h; sourceTree = "<group>"; };
+		E343ACAE1FC8DCFC00FC0E9A /* PullUpLoadMoreView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PullUpLoadMoreView.m; sourceTree = "<group>"; };
+		E343ACB51FC8E39F00FC0E9A /* HistoryManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistoryManager.h; sourceTree = "<group>"; };
+		E343ACB61FC8E39F00FC0E9A /* HistoryManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HistoryManager.m; sourceTree = "<group>"; };
 		E34820991FC8A731000134C3 /* NetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		E348209A1FC8A731000134C3 /* NetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		E34820A21FC8A8B3000134C3 /* MovieModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieModel.h; sourceTree = "<group>"; };
@@ -149,6 +155,8 @@
 			children = (
 				E34820991FC8A731000134C3 /* NetworkManager.h */,
 				E348209A1FC8A731000134C3 /* NetworkManager.m */,
+				E343ACB51FC8E39F00FC0E9A /* HistoryManager.h */,
+				E343ACB61FC8E39F00FC0E9A /* HistoryManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -228,6 +236,8 @@
 			children = (
 				E3D728041FC8C2DD00893C01 /* MovieSearchResultTableViewCell.h */,
 				E3D728051FC8C2DD00893C01 /* MovieSearchResultTableViewCell.m */,
+				E343ACAD1FC8DCFC00FC0E9A /* PullUpLoadMoreView.h */,
+				E343ACAE1FC8DCFC00FC0E9A /* PullUpLoadMoreView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -260,7 +270,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E354D61D1FC8133700EFB8CB /* Build configuration list for PBXNativeTarget "CareemTest" */;
 			buildPhases = (
-				E3D729571FC8CD3A00893C01 /* Clone Submodules */,
 				E354D5F81FC8133700EFB8CB /* Sources */,
 				E354D5F91FC8133700EFB8CB /* Frameworks */,
 				E354D5FA1FC8133700EFB8CB /* Resources */,
@@ -403,23 +412,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		E3D729571FC8CD3A00893C01 /* Clone Submodules */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Clone Submodules";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}\"\n\ncd \"$APP_PATH/Lib/SDWebImage/\"\ngit submodule update --init --recursive\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		E354D5F81FC8133700EFB8CB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -429,7 +421,9 @@
 				E34820AE1FC8B4D1000134C3 /* MovieSearchResultVC.m in Sources */,
 				E348209B1FC8A731000134C3 /* NetworkManager.m in Sources */,
 				E354D6041FC8133700EFB8CB /* MovieSearchVC.m in Sources */,
+				E343ACB71FC8E39F00FC0E9A /* HistoryManager.m in Sources */,
 				E354D60F1FC8133700EFB8CB /* main.m in Sources */,
+				E343ACAF1FC8DCFC00FC0E9A /* PullUpLoadMoreView.m in Sources */,
 				E34820A41FC8A8B3000134C3 /* MovieModel.m in Sources */,
 				E3D728061FC8C2DD00893C01 /* MovieSearchResultTableViewCell.m in Sources */,
 				E354D6011FC8133700EFB8CB /* AppDelegate.m in Sources */,
